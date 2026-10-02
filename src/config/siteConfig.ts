@@ -57,7 +57,7 @@ export const siteConfig = {
 
   finalVideo: {
     badge: "ACT VIII • THE FINALE",
-    src: "/videos/final-video.mp4",
+    src: "https://res.cloudinary.com/dnqnwgcdl/video/upload/v1790965651/final-video_f2ssac.mp4",
     title: "Happy Birthday",
     subtitle: "Out of eight million people, you are my favorite story...",
   },
