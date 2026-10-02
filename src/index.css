@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ===== Custom Theme ===== */
+@theme {
+  --color-bg-warm: #08060c;
+  --color-bg-pink: #FFF4F6;
+  --color-bg-rose-light: #FCEEF2;
+  --color-soft-pink: #F6B6C8;
+  --color-rose: #D96C8B;
+  --color-cream: #FFFDF8;
+  --color-text-main: #FFFFFF;
+  --color-accent: #B85C78;
+  --color-accent-light: #D4899E;
+
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-handwritten: 'Caveat', cursive;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: #08060c;
+  overflow-x: clip;
+  line-height: 1.6;
+}
+
+/* Paper subtle noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ===== Font Utility Classes ===== */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08060c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 108, 139, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 108, 139, 0.7);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: #D96C8B;
+  color: #FFFFFF;
+}
+
+/* ===== Video Player ===== */
+.video-frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Atmospheric Haze & Cinematic Bloom ===== */
+.atmospheric-haze {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 35%, rgba(217, 108, 139, 0.08) 0%, transparent 70%);
+}
+
+.light-bloom {
+  filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.45));
+}
+
+.cinema-shadow {
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.75), 0 0 35px rgba(217, 108, 139, 0.15);
+}
